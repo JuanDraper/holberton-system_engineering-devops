@@ -1,0 +1,13 @@
+total 32
+drwxr-xr-x 6 root root  212 Jun 14 09:32 .
+drwx------ 1 root root 4096 Jun 14 06:54 ..
+drwxr-xr-x 2 root root 4096 Jun 10 09:59 0x00-shell_basics
+drwxr-xr-x 2 root root 4096 Jun 10 16:07 0x01-shell_permissions
+drwxr-xr-x 2 root root  148 Jun 14 07:57 0x02-shell_redirections
+-rwxr--r-- 1 root root   84 Jun 14 09:20 7-file
+-rwxr--r-- 1 root root   84 Jun 14 08:05 7-file~
+-rwxr--r-- 1 root root   36 Jun 14 09:32 8-cwd_state
+drwxr-xr-x 8 root root  201 Jun 14 09:20 .git
+-rw-r--r-- 1 root root   43 Jun 14 09:21 \*\'Holberton
+-rw-r--r-- 1 root root    0 Jun 14 09:32 ls_cwd_content
+-rwxr-xr-x 1 root root   31 Jun 10 09:59 README.md
