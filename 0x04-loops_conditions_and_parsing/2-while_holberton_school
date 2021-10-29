@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-# "Holberton School" 10 times
-counter=0
-while [ $counter -lt 10 ]
-do
-	echo Holberton School
-	((counter++))
-done
