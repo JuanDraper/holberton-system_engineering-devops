@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# "Holberton School" 10 times, and "Hi" after the 9th iteration.
-counter=0
-while [ $counter -lt 10 ]
+# "Best School" 10 times, and "Hi" after the 9th iteration.
+c=0
+while [ $c -lt 10 ]
 do
-	echo Holberton School
-	if [ $counter -eq 8 ]
+	echo Best School
+	if [ $c -eq 8 ]
 	then
 		echo Hi
 	fi
-	((counter++))
+	((c++))
 done
