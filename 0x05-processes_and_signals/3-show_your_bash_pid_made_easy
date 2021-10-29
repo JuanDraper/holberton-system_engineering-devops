@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#  prints she PID and process name of those that are bas
+pgrep -l bash
