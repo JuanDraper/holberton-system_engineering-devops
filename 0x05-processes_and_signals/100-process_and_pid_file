@@ -2,7 +2,7 @@
 #it does like a lot, and kills a lot
 echo $$ > /var/run/holbertonscript.pid
 trap "echo I hate the kill command && rm /var/run/holbertonscript.pid && exit" 15
-trap "echo Y U no love me?!" 2
+trap "echo CY U no love me?!" 2
 trap "rm /var/run/holbertonscript.pid && exit && exit" 3
 while true
 do
