@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# This script shows a list of all active Ips.
+ifconfig -a | grep "inet addr:" | cut -d: -f2 | cut -d" "  -f1
