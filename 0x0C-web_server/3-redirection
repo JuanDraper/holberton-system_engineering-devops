@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#configures redirection page.
+apt-get -y update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo Hello World > replace
+cp replace /var/www/html/index.nginx-debian.html
+rm replace
+sudo sed -ie "s/^server {$/server {\n\trewrite ^\/redirect_me http:\/\/holbertonschool.com permanent;/g" /etc/nginx/sites-available/default
+service nginx restart
