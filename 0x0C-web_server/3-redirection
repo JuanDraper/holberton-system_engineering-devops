@@ -6,5 +6,5 @@ ufw allow 'Nginx HTTP'
 echo Hello World > replace
 cp replace /var/www/html/index.nginx-debian.html
 rm replace
-sudo sed -ie "s/^server {$/server {\n\trewrite ^\/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;/g" /etc/nginx/sites-available/default
+sudo sed -ie "s/^server {$/server {\n\trewrite ^\/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;/n" /etc/nginx/sites-available/default
 service nginx restart
