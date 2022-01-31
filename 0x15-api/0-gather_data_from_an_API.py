@@ -1,21 +1,21 @@
 #!/usr/bin/python3
-""" returns info about the TODO list of a given ID """
+""" For an employee ID, returns information about the TODO list progress. """
 import json
 import requests
 import sys
 
 
 if __name__ == "__main__":
-    r = requests.get("https://jsonplaceholder.typicode.com/users/" +
-                     sys.argv[1])
-    d = json.loads(r.text)
-    n = d.get('name')
-    r = requests.get("https://jsonplaceholder.typicode.com/todos/" +
-                     "?userId=" + sys.argv[1])
-    td = json.loads(r.text)
-    ts = len(td)
-    comp = [task for task in td if task.get('completed')]
-    dn = len(comp)
-    print("Employee {} is done with tasks({}/{}):".format(n, dn, ts))
-    for task in comp:
-        print("\t {}".format(task.get('title')))
+    response = requests.get("https://jsonplaceholder.typicode.com/users/" +
+                            sys.argv[1])
+    dicti = json.loads(response.text)
+    name = dicti.get('name')
+    response = requests.get("https://jsonplaceholder.typicode.com/todos/" +
+                            "?userId=" + sys.argv[1])
+    todos = json.loads(response.text)
+    tasks = len(todos)
+    completed = [task for task in todos if task.get('completed')]
+    done = len(completed)
+    print("Employee {} is done with tasks({}/{}):".format(name, done, tasks))
+    for task in completed:
+        print("\t", task.get('title'))

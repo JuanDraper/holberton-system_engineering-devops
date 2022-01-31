@@ -1,27 +1,26 @@
 #!/usr/bin/python3
-""" returns info about the TODO list of a given ID and exports
-    it to json"""
+""" Export data in the JSON format. """
 import json
 import requests
 import sys
 
 
 if __name__ == "__main__":
-    r = requests.get("https://jsonplaceholder.typicode.com/users/")
-    d = json.loads(r.text)
+    response = requests.get("https://jsonplaceholder.typicode.com/users")
+    dicti = json.loads(response.text)
     ans = {}
-    for user in d:
-        un = user.get('username')
-        uId = str(user.get('id'))
-        r = requests.get("https://jsonplaceholder.typicode.com/todos/" +
-                         "?userId=" + uId)
-        td = json.loads(r.text)
-        ts = [task for task in td]
-        ans [uId] = []
-        for task in ts:
-            tdict = {"task": task.get('title'),
-                     'completed': task.get('completed'),
-                     'username': un}
-            ans.get(uId).append(tdict)
+    for user in dicti:
+        username = user.get('username')
+        userId = str(user.get('id'))
+        response = requests.get("https://jsonplaceholder.typicode.com/todos/" +
+                                "?userId=" + userId)
+        todos = json.loads(response.text)
+        tasks = [task for task in todos]
+        ans[userId] = []
+        for task in tasks:
+            task_dict = {"task": task.get('title'),
+                         'completed': task.get('completed'),
+                         'username': username}
+            ans.get(userId).append(task_dict)
     with open("todo_all_employees.json", "w") as f:
-        json.dump(ans, f) 
+        json.dump(ans, f)
