@@ -1,19 +1,21 @@
 #!/usr/bin/python3
-""" returns info given an ID """
-
+""" returns info about the TODO list of a given ID """
+import json
 import requests
-from sys import argv
+import sys
 
-if __name__ == '__main__':
-    userId = argv[1]
-    user = requests.get("https://jsonplaceholder.typicode.com/users/{}".
-                        format(userId), verify=False).json()
-    todo = requests.get("https://jsonplaceholder.typicode.com/todos?userId={}".
-                        format(userId), verify=False).json()
-    completed_tasks = []
-    for task in todo:
-        if task.get('completed') is True:
-            completed_tasks.append(task.get('title'))
-    print("Employee {} is done with tasks({}/{}):".
-          format(user.get('name'), len(completed_tasks), len(todo)))
-    print("\n".join("\t {}".format(task) for task in completed_tasks))
+
+if __name__ == "__main__":
+    r = requests.get("https://jsonplaceholder.typicode.com/users/" +
+                     sys.argv[1])
+    d = json.loads(r.text)
+    n = d.get('name')
+    r = requests.get("https://jsonplaceholder.typicode.com/todos/" +
+                     "?userId=" + sys.argv[1])
+    td = json.loads(r.text)
+    ts = len(td)
+    comp = [task for task in td if task.get('completed')]
+    dn = len(comp)
+    print("Employee {} is done with tasks({}/{}):".format(n, dn, ts))
+    for task in comp:
+        print("\t", task.get('title'))
