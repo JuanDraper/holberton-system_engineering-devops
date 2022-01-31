@@ -18,4 +18,4 @@ if __name__ == "__main__":
     dn = len(comp)
     print("Employee {} is done with tasks({}/{}):".format(n, dn, ts))
     for task in comp:
-        print("    ", task.get('title'))
+        print("\t", task.get('title'))
